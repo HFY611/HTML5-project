@@ -1,0 +1,56 @@
+.all{
+	width:100%;height:900px;margin: 0 auto;background:url(../images/robot.jpg);
+}
+.all canvas {
+	width:100%;height:900px/*默认全屏显示 可自己设置高度640px*/;
+	display:inline-block;vertical-align:baseline
+	position:absolute;
+	z-index:-1;
+	}
+.all .canvaszz{  /*用来解决视频右键菜单，用于视频上面的遮罩层*/
+	width:100%;
+	background-image:url(../images/robot.jpg);
+	height:900px;
+	position:absolute;
+	z-index:10;
+		filter:alpha(opacity=40);  
+      	-moz-opacity:0.4;  
+      	-khtml-opacity: 0.4;  
+      	opacity: 0.4;
+	}
+
+.head{
+	width:100%;height:100px;position:fixed;z-index:30;
+}
+.logo{
+	height:60px;width:60px;
+}
+.word{
+	width: 747px;
+	height: 342px;
+	position: absolute;
+	left: 107px;
+	bottom: -33px;
+	z-index:20;
+}
+.p1{
+	font-size:48px;color:#FFF;font-weight:bold;
+}
+.p2{
+	font-size:16px;color:#FFF;
+}
+.p3{
+	width:200px;height:70px;font-size:30px;background:#004080;text-align:center;line-height:65px;font-weight:bold;color:#FFF;
+}
+.p3 a:link{
+	text-decoration:none;color:#FFF;
+}
+.p3 a:hover{
+	text-decoration:underline;color:#FFF;
+}
+.p3 a:active{
+	text-decoration:none;color:#FFF;
+}
+.p3 a:visited{
+	text-decoration:none;color:#FFF;
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>whzzteam</title>
+<link rel="stylesheet" href="css/daohang.css"/>
+<link rel="stylesheet" href="css/shouye.css"/>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+<div class="head">
+<div class="menuHolder">
+	<div class="menuWindow">
+		<ul class="p1">
+			<li class="s1"><a href="#"><img src="images/daohang.png" style="width:50px;height:50px;"/></a>
+				<ul class="p2">
+					<li class="s2"><a href="index.html"><span>首页</span></a></li>
+					<li class="s2"><a href="Templates/jianjie.html"><span>简介</span></a>
+						<ul class="p3 a3">
+							<li><a href="Templates/jianjie.html">科技</a></li>
+							<li><a href="Templates/jianjie.html">黑科技</a></li>
+						</ul>
+					</li>
+					<li class="s2"><a href="#"><span>人物</span></a>
+						<ul class="p3 a3">
+							<li><a href="Templates/kexuejia.html">科学家</a></li>
+							<li><a href="Templates/zhumingrw.html">著名人物</a></li>
+						</ul>
+					</li>
+					<li class="s2"><a href="#"><span>产品</span></a>
+						<ul class="p3 a3">
+							<li><a href="Templates/production.html">科技产品</a></li>
+							<li><a href="Templates/blacktechnology.html">黑科技产品</a></li>
+							<li><a href="Templates/xiaofaming.html">小发明</a></li>
+						</ul>
+					</li>
+					<li class="s2"><a href="Templates/future.html"><span>发展前景</span></a>
+					</li>
+					<li class="s2 b6"><a href="Templates/about.html"><span>关于我们</span></a>
+						<ul class="p3 a5">
+							<li><a href="#">周健芳</a></li>
+							<li><a href="#">胡富雨</a></li>
+							<li><a href="#">吴洁灿</a></li>
+							<li><a href="#">张茹</a></li>
+							<li><a href="#">我们这一组</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<img src="images/logo.png" style="width:90px;height:90px;float:right;margin-right:10px;" />
+</div>
+<div class="word">
+<p class="p1">厉害了，我的国</p>
+<p class="p2">中国的劳动生产率只有发达国家的1/40。科学技术一旦转化为生产力将极大地提高生产效率，从而推动经济快速发展，其作用大大超过了资金、劳动力对经济的变革作用。当今世界，和平与发展是时代的主题。但"冷战"思维依然存在，霸权主义和强权政治仍是威胁世界和平与稳定的主要根源。科技强国已经成为现代国家的共同选择.....</p>
+<p class="p3"><a href="Templates/jianjie.html">READ MORE</a></p>
+</div>
+<div class="all">
+<div class="canvaszz"> </div>
+  <canvas id="canvas"></canvas> 
+</div>
+</div>
+<div class="videozz"></div>
+<script>
+//宇宙特效
+"use strict";
+var canvas = document.getElementById('canvas'),
+  ctx = canvas.getContext('2d'),
+  w = canvas.width = window.innerWidth,
+  h = canvas.height = window.innerHeight,
+
+  hue = 217,
+  stars = [],
+  count = 0,
+  maxStars = 1300;//星星数量
+
+var canvas2 = document.createElement('canvas'),
+  ctx2 = canvas2.getContext('2d');
+canvas2.width = 100;
+canvas2.height = 100;
+var half = canvas2.width / 2,
+  gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+gradient2.addColorStop(0.025, '#CCC');
+gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+gradient2.addColorStop(1, 'transparent');
+
+ctx2.fillStyle = gradient2;
+ctx2.beginPath();
+ctx2.arc(half, half, half, 0, Math.PI * 2);
+ctx2.fill();
+
+// End cache
+
+function random(min, max) {
+  if (arguments.length < 2) {
+    max = min;
+    min = 0;
+  }
+
+  if (min > max) {
+    var hold = max;
+    max = min;
+    min = hold;
+  }
+
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function maxOrbit(x, y) {
+  var max = Math.max(x, y),
+    diameter = Math.round(Math.sqrt(max * max + max * max));
+  return diameter / 2;
+  //星星移动范围，值越大范围越小，
+}
+
+var Star = function() {
+
+  this.orbitRadius = random(maxOrbit(w, h));
+  this.radius = random(60, this.orbitRadius) / 8; 
+  //星星大小
+  this.orbitX = w / 2;
+  this.orbitY = h / 2;
+  this.timePassed = random(0, maxStars);
+  this.speed = random(this.orbitRadius) / 50000; 
+  //星星移动速度
+  this.alpha = random(2, 10) / 10;
+
+  count++;
+  stars[count] = this;
+}
+
+Star.prototype.draw = function() {
+  var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+    y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+    twinkle = random(10);
+
+  if (twinkle === 1 && this.alpha > 0) {
+    this.alpha -= 0.05;
+  } else if (twinkle === 2 && this.alpha < 1) {
+    this.alpha += 0.05;
+  }
+
+  ctx.globalAlpha = this.alpha;
+  ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+  this.timePassed += this.speed;
+}
+
+for (var i = 0; i < maxStars; i++) {
+  new Star();
+}
+
+function animation() {
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.globalAlpha = 0.5; //尾巴
+  ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
+  ctx.fillRect(0, 0, w, h)
+
+  ctx.globalCompositeOperation = 'lighter';
+  for (var i = 1, l = stars.length; i < l; i++) {
+    stars[i].draw();
+  };
+
+  window.requestAnimationFrame(animation);
+}
+
+animation();
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+ .all{
+	width:1350px;margin: 0 auto;background:url(../images/robot.jpg);
+}
+.black{
+	width:1350px;margin: 0 auto;background:url(../images/4.jpg);
+}
+.future{
+	background:url(../images/6.jpg);width:1350px;margin: 0 auto;
+}
+.jianjie{
+	width:1350px;margin: 0 auto;background:url(../images/1.jpg);
+}
+.kexuejia{
+	width:1350px;margin: 0 auto;background:url(../images/team-bg.png);
+}
+.prod{
+	width:1350px;margin: 0 auto;background:url(../images/team-bg.png);
+}
+.rw{
+	width:1350px;margin: 0 auto;background:url(../images/1.jpg);
+}
+.about{
+	width:1350px;margin: 0 auto;background:url(../images/backg3.jpg);
+}
+.head{
+	width:1350px;height:90px;
+}
+.left{
+	position:relative;width:800px;margin-right:-800px;
+	
+}
+.right{
+	width:300px;height:350px;float:right;
+}
+.ours{
+	height:700px;
+}
+.bottom{
+	width:1350px;height:50px;clear:left;color:#FFF;background:#000024;margin-bottom:5px;
+}
+.footer_l {
+	float : left;
+	width : 550px;line-height:50px;margin-left:50px;
+}
+
+.footer_r {
+	float : left;
+	text-align : right;
+	width : 700px;line-height:50px;color:#FFF;
+}
+.footer_l a{color:#FFF;
+}
+.footer_l a:link{
+	text-decoration:none;color:#FFF;
+}
+.footer_l a:hover{
+	text-decoration:underline;color:#FFF;
+}
+.footer_l a:active{
+	text-decoration:none;color:#FFF;
+}
+
+.right a:visited{
+	text-decoration:none;color:#FFF;
+}
+.right a:link{
+	text-decoration:none;color:#FFF;
+}
+.right a:hover{
+	text-decoration:underline;color:#FFF;
+}
+.right a:active{
+	text-decoration:none;color:#FFF;
+}
